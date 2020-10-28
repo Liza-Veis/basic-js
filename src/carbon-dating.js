@@ -4,13 +4,13 @@ const MODERN_ACTIVITY = 15;
 const HALF_LIFE_PERIOD = 5730;
 
 module.exports = function dateSample(sampleActivity) {
+  sampleActivity = parseFloat(sampleActivity);
   if (
     !sampleActivity ||
     typeof sampleActivity !== "string" ||
-    !parseFloat(sampleActivity) ||
-    parseFloat(sampleActivity) < 0 ||
-    parseFloat(sampleActivity) >= 9000 ||
-    !Number.isInteger(parseFloat(sampleActivity))
+    sampleActivity < 0 ||
+    sampleActivity >= 9000 ||
+    !Number.isInteger(sampleActivity)
   ) {
     return false;
   }
